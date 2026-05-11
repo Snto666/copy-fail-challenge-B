@@ -1,0 +1,6 @@
+=== HITO 1: KERNEL VULNERABLE CONFIRMADO ===
+Fecha: Mon May 11 13:13:28 UTC 2026
+Hostname: codespaces-da8bfa
+Kernel: 6.12.0
+Identidad: uid=1001(student) gid=1001(student) groups=1001(student)
+Módulos AF_ALG: /proc no montado en initramfs minimalista
