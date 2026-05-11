@@ -1,5 +1,5 @@
-=== HITO 1: KERNEL VULNERABLE CONFIRMADO ===
-Fecha: Mon May 11 13:13:28 UTC 2026
+]633;E;echo "=== HITO 1: KERNEL VULNERABLE CONFIRMADO ===";9f703759-bc9c-4413-895f-da6629097e10]633;C=== HITO 1: KERNEL VULNERABLE CONFIRMADO ===
+Fecha: Mon May 11 13:13:56 UTC 2026
 Hostname: codespaces-da8bfa
 Kernel: 6.12.0
 Identidad: uid=1001(student) gid=1001(student) groups=1001(student)
