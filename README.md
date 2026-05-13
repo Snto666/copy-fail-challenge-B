@@ -339,3 +339,97 @@ cat /proc/modules | grep algif
   181  make qemu
   182  grep -i authencesn kernel/linux/.config
   183  history
+      1  nproc
+    2  grep -i "CRYPTO_AUTHENC" kernel/linux/.config
+    3  grep -i "AUTHENCESN" kernel/linux/.config
+    4  echo "CONFIG_CRYPTO_AUTHENCESN=y" >> kernel/linux/.config
+    5  cd kernel/linux
+    6  make -j4 crypto/authencesn.ko 2>&1 | tail -5
+    7  cd /workspaces/copy-fail-challenge-B/kernel/linux
+    8  scripts/config --enable CONFIG_CRYPTO_AUTHENCESN
+    9  scripts/config --enable CONFIG_CRYPTO_SEQIV
+   10  scripts/config --enable CONFIG_CRYPTO_CBC
+   11  make olddefconfig
+   12  make -j4 bzImage 2>&1 | tail -10
+   13  cd /workspaces/copy-fail-challenge-B
+   14  cp kernel/linux/arch/x86/boot/bzImage kernel/build/bzImage_vuln
+   15  cd /workspaces/copy-fail-challenge-B
+   16  cp kernel/linux/arch/x86/boot/bzImage kernel/build/bzImage_vuln
+   17  make qemu
+   18  ls kernel/linux/crypto/authencesn* 2>/dev/null
+   19  grep "CONFIG_CRYPTO_AUTHENCESN" kernel/linux/.config
+   20  Sfind kernel/linux -name "authencesn.ko" 2>/dev/null
+   21  find kernel/linux -name "authencesn.ko" 2>/dev/null
+   22  cd kernel/linux
+   23  make -j4 M=crypto modules 2>&1 | tail -15
+   24  cd kernel/linux
+   25  make -j4 M=crypto modules 2>&1 | tail -15
+   26  cd /workspaces/copy-fail-challenge-B/kernel/linux
+   27  scripts/config --enable CONFIG_MODULES
+   28  scripts/config --enable CONFIG_CRYPTO_AUTHENCESN
+   29  make olddefconfig
+   30  make -j4 bzImage 2>&1 | tail -5
+   31  cat /workspaces/copy-fail-challenge-B/scripts/02_build_kernel.sh
+   32  cd /workspaces/copy-fail-challenge-B/kernel/linux
+   33  make tinyconfig
+   34  ./scripts/config --enable 64BIT
+   35  ./scripts/config --enable SERIAL_8250
+   36  ./scripts/config --enable SERIAL_8250_CONSOLE
+   37  ./scripts/config --enable TTY
+   38  ./scripts/config --enable PRINTK
+   39  ./scripts/config --enable BINFMT_ELF
+   40  ./scripts/config --enable BINFMT_SCRIPT
+   41  ./scripts/config --enable BLK_DEV_INITRD
+   42  ./scripts/config --enable RD_GZIP
+   43  ./scripts/config --enable TMPFS
+   44  ./scripts/config --enable PROC_FS
+   45  ./scripts/config --enable SYSFS
+   46  ./scripts/config --enable DEVTMPFS
+   47  ./scripts/config --enable DEVTMPFS_MOUNT
+   48  ./scripts/config --enable NET
+   49  ./scripts/config --enable UNIX
+   50  ./scripts/config --enable INET
+   51  ./scripts/config --enable CRYPTO
+   52  ./scripts/config --enable CRYPTO_AEAD
+   53  ./scripts/config --enable CRYPTO_AUTHENC
+   54  ./scripts/config --enable CRYPTO_USER_API
+   55  ./scripts/config --enable CRYPTO_USER_API_AEAD
+   56  ./scripts/config --enable CRYPTO_USER_API_SKCIPHER
+   57  ./scripts/config --enable CRYPTO_AUTHENCESN
+   58  ./scripts/config --enable CRYPTO_AES
+   59  ./scripts/config --enable CRYPTO_CBC
+   60  ./scripts/config --enable CRYPTO_HMAC
+   61  ./scripts/config --enable CRYPTO_SHA256
+   62  ./scripts/config --enable MULTIUSER
+   63  make olddefconfig
+   64  make -j4 bzImage 2>&1 | tail -5
+   65  cd /workspaces/copy-fail-challenge-B
+   66  cp kernel/linux/arch/x86/boot/bzImage kernel/build/bzImage_vuln
+   67  make qemu
+   68  grep "CRYPTO_AUTHENCESN" /workspaces/copy-fail-challenge-B/kernel/linux/.config
+   69  cd /workspaces/copy-fail-challenge-B/kernel/linux
+   70  echo "CONFIG_CRYPTO_AUTHENCESN=y" >> .config
+   71  echo "CONFIG_CRYPTO_AEAD2=y" >> .config
+   72  make olddefconfig
+   73  grep "CRYPTO_AUTHENCESN" .config
+   74  grep "CRYPTO_AUTHENC\b" .config
+   75  grep "CRYPTO_AEAD\b" .config
+   76  echo "CONFIG_CRYPTO_AUTHENCESN=y" >> .config
+   77  make -j4 bzImage 2>&1 | tail -5
+   78  grep "CRYPTO_AUTHENCESN" .config
+   79  scripts/config --enable CRYPTO_AUTHENCESN
+   80  grep "CRYPTO_AUTHENCESN" .config
+   81  make -j4 bzImage 2>&1 | tail -3
+   82  cd /workspaces/copy-fail-challenge-B
+   83  cp kernel/linux/arch/x86/boot/bzImage kernel/build/bzImage_vuln
+   84  make qemu
+   85  cd /workspaces/copy-fail-challenge-B/kernel/linux
+   86  touch crypto/authencesn.c
+   87  make -j4 bzImage 2>&1 | grep -E "authencesn|bzImage|Error"
+   88  cd /workspaces/copy-fail-challenge-B
+   89  cp kernel/linux/arch/x86/boot/bzImage kernel/build/bzImage_vuln
+   90  make qemu
+   91  cd /workspaces/copy-fail-challenge-B
+   92  cp kernel/linux/arch/x86/boot/bzImage kernel/build/bzImage_vuln
+   93  make qemu
+   94  history
